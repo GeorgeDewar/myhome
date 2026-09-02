@@ -92,6 +92,9 @@ void Canvas::mouseMoveEvent(QMouseEvent *event)
 
 void Canvas::mouseReleaseEvent(QMouseEvent *event) {
     unsetCursor(); // Change cursor back to default
+    if (event->button() == Qt::LeftButton) {
+        
+    }
 }
 
 double Canvas::scale() const

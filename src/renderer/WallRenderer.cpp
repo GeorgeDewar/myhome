@@ -2,7 +2,6 @@
 #include "model/Plan.h"
 #include <QPen>
 #include <QPainterPath>
-#include <QVector2D>
 
 void WallRenderer::renderWalls(const Plan &plan, int currentLevel) {
     const auto &buildings = plan.getBuildings();
@@ -16,28 +15,11 @@ void WallRenderer::renderWalls(const Plan &plan, int currentLevel) {
         const auto &walls = level.getWalls();
         QPainterPath wallArea;
         for (const auto &wall : walls) {
-            //  renderWallFrame(wall);
-
-            QPointF direction = wall.endPoint() - wall.startPoint();
-            QVector2D dirVector(direction);
-            const double length = dirVector.length();
-            if (length == 0) {
+            const QPolygonF polygon = wall.areaPolygon();
+            if (polygon.isEmpty()) {
                 qWarning() << "Wall has zero length, skipping.";
-                continue; // Skip zero-length walls
+                continue;
             }
-            QVector2D unitDirection = dirVector.normalized();
-            QVector2D unitNormal(-unitDirection.y(), unitDirection.x());
-            const QVector2D halfThickness = unitNormal * (wall.thickness() / 2.0);
-            // Extend the wall endpoints by half the wall thickness, as it is the centrelines that join, not the edges
-            const QPointF start = wall.startPoint() - unitDirection.toPointF() * (wall.thickness() / 2.0);
-            const QPointF end = wall.endPoint() + unitDirection.toPointF() * (wall.thickness() / 2.0);
-            // Construct a four-point polygon representing the wall's area
-            QPolygonF polygon {
-                start + halfThickness.toPointF(),
-                end + halfThickness.toPointF(),
-                end - halfThickness.toPointF(),
-                start - halfThickness.toPointF(),
-            };
 
             QPainterPath wallFramingPath;
             wallFramingPath.addPolygon(polygon);

@@ -3,6 +3,7 @@
 #include <QWidget>
 
 class Plan;
+class Wall;
 class QPaintEvent;
 class QMouseEvent;
 class QPoint;
@@ -33,6 +34,7 @@ signals:
     void cursorPositionChanged(const QPointF &position);
     void scaleChanged(double scale);
     void offsetChanged(const QPointF &offset);
+    void wallSelected(const Wall &wall);
 
 protected:
     void paintEvent(QPaintEvent *event) override;

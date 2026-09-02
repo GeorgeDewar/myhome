@@ -13,6 +13,7 @@ class Wall final
         QPointF startPoint() const { return startPoint_; }
         QPointF endPoint() const { return endPoint_; }
         double thickness() const { return thickness_; }
+        QPolygonF areaPolygon() const;
     
     private:
         QPointF startPoint_;

@@ -2,6 +2,7 @@
 
 #include <QMainWindow>
 #include "model/Plan.h"
+#include "model/Wall.h"
 
 class QLabel;
 class QPointF;
@@ -23,5 +24,6 @@ private:
     QAction *upAction_;
     QAction *downAction_;
 
-    Plan *currentPlan_;
+    Plan *currentPlan_ { nullptr };
+    Wall *selectedWall_ { nullptr }; // TODO: change to a generic selected object
 };
