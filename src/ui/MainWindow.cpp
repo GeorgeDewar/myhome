@@ -16,7 +16,6 @@
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
 {
-    setWindowTitle("Open Home Designer");
     resize(1000, 700);
 
     QMenu *fileMenu = menuBar()->addMenu("&File");
@@ -40,6 +39,11 @@ MainWindow::MainWindow(QWidget *parent)
         updateCurrentLevel(canvas->currentLevel());
     });
     updateCurrentLevel(canvas->currentLevel());
+
+    // Set up layer bar
+    QToolBar *layerBar = addToolBar("Layer Toolbar");
+    addToolBar(Qt::RightToolBarArea, layerBar);
+    layerBar->setAllowedAreas(Qt::LeftToolBarArea | Qt::RightToolBarArea);
 
     // Set up status bar
     QLabel *cursorPositionLabel = new QLabel(this);

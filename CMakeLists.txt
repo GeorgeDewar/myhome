@@ -1,13 +1,13 @@
 cmake_minimum_required(VERSION 3.20)
 
-project(openhome LANGUAGES CXX)
+project(myhome LANGUAGES CXX)
 
 find_package(Qt6 REQUIRED COMPONENTS Widgets)
 
 set(CMAKE_AUTOMOC ON)
 
-add_executable(openhome WIN32
-	src/openhome.cpp
+add_executable(myhome WIN32
+	src/main.cpp
 	src/model/Building.cpp
 	src/model/Level.cpp
 	src/model/Plan.cpp
@@ -17,22 +17,22 @@ add_executable(openhome WIN32
 	src/ui/MainWindow.cpp
 )
 
-set_target_properties(openhome PROPERTIES
+set_target_properties(myhome PROPERTIES
 	CXX_STANDARD 23
 	CXX_STANDARD_REQUIRED ON
 	CXX_EXTENSIONS OFF
 )
-target_compile_options(openhome PRIVATE
+target_compile_options(myhome PRIVATE
 	/std:c++latest
 )
-target_include_directories(openhome PRIVATE src)
-target_link_libraries(openhome PRIVATE Qt6::Widgets)
+target_include_directories(myhome PRIVATE src)
+target_link_libraries(myhome PRIVATE Qt6::Widgets)
 
-add_custom_command(TARGET openhome POST_BUILD
-	COMMAND ${CMAKE_COMMAND} -E make_directory "$<TARGET_FILE_DIR:openhome>/platforms"
+add_custom_command(TARGET myhome POST_BUILD
+	COMMAND ${CMAKE_COMMAND} -E make_directory "$<TARGET_FILE_DIR:myhome>/platforms"
 	COMMAND ${CMAKE_COMMAND} -E copy_if_different
 		"$<TARGET_FILE:Qt6::QWindowsIntegrationPlugin>"
-		"$<TARGET_FILE_DIR:openhome>/platforms/$<TARGET_FILE_NAME:Qt6::QWindowsIntegrationPlugin>"
+		"$<TARGET_FILE_DIR:myhome>/platforms/$<TARGET_FILE_NAME:Qt6::QWindowsIntegrationPlugin>"
 	COMMENT "Deploying the Qt Windows platform plugin"
 )
 

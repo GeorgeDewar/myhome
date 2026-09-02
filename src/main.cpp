@@ -5,7 +5,7 @@
 int main(int argc, char *argv[])
 {
     QApplication application(argc, argv);
-    application.setApplicationName("Open Home Designer");
+    application.setApplicationName("MyHome");
 
     MainWindow mainWindow;
     mainWindow.show();
