@@ -1,0 +1,90 @@
+#include "MainWindow.h"
+
+#include "Canvas.h"
+
+#include <QAction>
+#include <QKeySequence>
+#include <QMenu>
+#include <QMenuBar>
+#include <QStatusBar>
+#include <QLabel>
+#include <QFile>
+#include <QJsonDocument>
+#include <QJsonObject>
+
+
+MainWindow::MainWindow(QWidget *parent)
+    : QMainWindow(parent)
+{
+    setWindowTitle("Open Home Designer");
+    resize(1000, 700);
+
+    QMenu *fileMenu = menuBar()->addMenu("&File");
+    QAction *closeAction = fileMenu->addAction("&Close");
+    closeAction->setShortcut(QKeySequence::Quit);
+    connect(closeAction, &QAction::triggered, this, &QWidget::close);
+
+    Canvas *canvas = new Canvas(this);
+    setCentralWidget(canvas);
+    QLabel *cursorPositionLabel = new QLabel(this);
+    statusBar()->addPermanentWidget(cursorPositionLabel);
+    scaleLabel_ = new QLabel(this);
+    statusBar()->addPermanentWidget(scaleLabel_);
+    offsetLabel_ = new QLabel(this);
+    statusBar()->addPermanentWidget(offsetLabel_);
+
+    // Listen to canvas events and update the status bar accordingly
+    connect(canvas, &Canvas::cursorPositionChanged,
+        cursorPositionLabel, [cursorPositionLabel](const QPointF &position) {
+            cursorPositionLabel->setText(QString("Cursor X: %1mm  Y: %2mm").arg(position.x() * 1000.0, 0, 'f', 0).arg(position.y() * 1000.0, 0, 'f', 0));
+        });
+    connect(canvas, &Canvas::scaleChanged,
+        this, &MainWindow::updateScale);
+    connect(canvas, &Canvas::offsetChanged,
+        this, &MainWindow::updateOffset);
+
+    // Update the status bar with the initial values from the canvas
+    updateScale(canvas->scale());
+    updateOffset(canvas->offset());
+
+    // Load our sample plan
+    loadFile("C:\\Users\\George\\code\\home-design\\new\\home.json");
+    canvas->setPlan(currentPlan_);
+
+    statusBar()->showMessage("Ready");
+}
+
+void MainWindow::updateScale(double scale)
+{
+    scaleLabel_->setText(QString("Scale: %1 px/m").arg(scale, 0, 'f', 2));
+}
+
+void MainWindow::updateOffset(const QPointF &offset)
+{
+    offsetLabel_->setText(QString("Offset X: %1mm  Y: %2mm").arg(offset.x() * 1000.0, 0, 'f', 0).arg(offset.y() * 1000.0, 0, 'f', 0));
+}
+
+void MainWindow::loadFile(const QString &filePath)
+{
+    QFile file(filePath);
+    if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        qWarning() << "Could not open file for reading:" << file.errorString();
+        return;
+    }
+
+    QByteArray fileData = file.readAll();
+    QJsonDocument jsonDoc = QJsonDocument::fromJson(fileData);
+    if (!jsonDoc.isObject()) {
+        qWarning() << "Invalid JSON format in file:" << filePath;
+        return;
+    }
+    QJsonObject jsonObj = jsonDoc.object();
+    auto planResult = Plan::fromJson(jsonObj);
+    if (!planResult) {
+        qWarning() << "Failed to load plan from JSON:" << planResult.error();
+        return;
+    }
+    qInfo() << "Successfully loaded plan from JSON:" << filePath;
+
+    currentPlan_ = new Plan(planResult.value());
+}
