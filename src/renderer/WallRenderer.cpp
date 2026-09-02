@@ -4,14 +4,7 @@
 #include <QPainterPath>
 
 void WallRenderer::renderWalls(const Plan &plan, int currentLevel) {
-    const auto &buildings = plan.getBuildings();
-    for (const auto &building : buildings) {
-        const auto &levels = building.getLevels();
-        if (currentLevel < 0 || currentLevel >= levels.size()) {
-            qWarning() << "Current level" << currentLevel << "is out of bounds for building with" << levels.size() << "levels.";
-            continue; // Skip if the current level is out of bounds
-        }
-        const auto &level = levels[currentLevel];
+    plan.forCurrentLevelOfEachBuilding(currentLevel, [this](const Building &, const Level &level) {
         const auto &walls = level.getWalls();
         QPainterPath wallArea;
         for (const auto &wall : walls) {
@@ -39,5 +32,5 @@ void WallRenderer::renderWalls(const Plan &plan, int currentLevel) {
         painter_->setPen(liningPen);
         painter_->setBrush(Qt::NoBrush);
         painter_->drawPath(wallArea);
-    }
+    });
 }
