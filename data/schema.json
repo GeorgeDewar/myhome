@@ -1,0 +1,104 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/product.schema.json",
+  "title": "House",
+  "description": "A house",
+  "type": "object",
+  "unevaluatedProperties": false,
+  "properties": {
+    "$schema": { "type": "string" },
+    "buildings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "levels"],
+        "unevaluatedProperties": false,
+        "properties": {
+          "name": { "type": "string" },
+          "levels": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["number", "name", "position"],
+              "unevaluatedProperties": false,
+              "properties": {
+                "number": {
+                  "type": "integer",
+                  "description": "Floor number, starting from 0 for the ground floor"
+                },
+                "name": {
+                  "type": "string",
+                  "description": "Displayable name of the floor"
+                },
+                "position": { "$ref": "#/$defs/position" },
+                "ceilingHeight": {
+                  "type": "number",
+                  "description": "Height of the ceiling in millimetres, from the unfinished floor surface to the ceiling surface above"
+                },
+                "totalHeight": {
+                  "type": "number",
+                  "description": "Height of the floor in millimetres, from the unfinished floor surface to the unfinished floor surface above"
+                },
+                "walls": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "required": ["id"],
+                    "unevaluatedProperties": false,
+                    "properties": {
+                      "id": { "type": "string" },
+                      "start": {
+                        "$ref": "#/$defs/position",
+                        "description": "Position of the start of the wall (left side when viewing face A) relative to the floor, in millimetres. The position is midway through the thickness of the wall."
+                      },
+                      "end": {
+                        "$ref": "#/$defs/position",
+                        "description": "Position of the end of the wall (right side when viewing face A) relative to the floor, in millimetres. The position is midway through the thickness of the wall."
+                      },
+                      "width": {
+                        "type": "number",
+                        "description": "Width of the wall in millimetres"
+                      }
+                    }
+                  }
+                },
+                "rooms": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "required": ["name"],
+                    "unevaluatedProperties": false,
+                    "properties": {
+                      "name": { "type": "string" },
+                      "walls": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "unevaluatedProperties": false,
+                          "properties": {
+                            "ref": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "position": {
+      "type": "array",
+      "items": { "type": "number" },
+      "minItems": 2,
+      "maxItems": 2,
+      "description": "Position of an object relative to its parent, in millimetres. The first element is the x-coordinate (higher toward the right when viewed on-screen), and the second element is the y-coordinate (higher downwards when viewed on-screen)."
+    }
+  }
+}

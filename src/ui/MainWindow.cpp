@@ -68,7 +68,7 @@ MainWindow::MainWindow(QWidget *parent)
     updateOffset(canvas->offset());
 
     // Load our sample plan
-    loadFile("C:\\Users\\George\\code\\home-design\\new\\home.json");
+    loadFile("data/McKeefry.json");
     canvas->setPlan(currentPlan_);
 
     statusBar()->showMessage("Ready");
