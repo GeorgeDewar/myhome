@@ -29,6 +29,8 @@ MainWindow::MainWindow(QWidget *parent)
 
     // Set up toolbar
     QToolBar *toolbar = addToolBar("Main Toolbar");
+    currentLevelLabel_ = new QLabel(this);
+    toolbar->addWidget(currentLevelLabel_);
     upAction_ = toolbar->addAction("Up", canvas, [this, canvas]() {
         canvas->setCurrentLevel(canvas->currentLevel() + 1);
         updateCurrentLevel(canvas->currentLevel());
@@ -107,4 +109,5 @@ void MainWindow::updateCurrentLevel(int level)
 {
     upAction_->setEnabled(currentPlan_ && level < currentPlan_->maxLevel());
     downAction_->setEnabled(currentPlan_ && level > currentPlan_->minLevel());
+    currentLevelLabel_->setText(QString("Level %1 ").arg(level));
 }

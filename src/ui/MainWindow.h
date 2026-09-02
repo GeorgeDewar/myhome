@@ -19,6 +19,7 @@ private:
 
     QLabel *scaleLabel_;
     QLabel *offsetLabel_;
+    QLabel *currentLevelLabel_;
     QAction *upAction_;
     QAction *downAction_;
 
