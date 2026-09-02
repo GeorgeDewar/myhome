@@ -1,2 +1,2 @@
-/build/
-/build-ninja/
+/build-*/
+/vcpkg_installed/

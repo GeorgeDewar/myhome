@@ -8,19 +8,19 @@
             "name": "Debug openhome",
             "type": "cppvsdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/Debug/openhome.exe",
+            "program": "${workspaceFolder}/build-debug/Debug/openhome.exe",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
             "environment": [],
             "console": "integratedTerminal",
-            "preLaunchTask": "CMake: build"
+            "preLaunchTask": "CMake: build Debug"
         },
         {
             "name": "Run openhome (Release)",
             "type": "cppvsdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/Release/openhome.exe",
+            "program": "${workspaceFolder}/build-release/Release/openhome.exe",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
