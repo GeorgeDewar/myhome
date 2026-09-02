@@ -4,6 +4,8 @@
 #include <QMouseEvent>
 #include <QPainter>
 #include "model/Plan.h"
+#include "model/Building.h"
+#include "model/Level.h"
 #include "renderer/WallRenderer.h"
 
 Canvas::Canvas(QWidget *parent)
@@ -93,7 +95,16 @@ void Canvas::mouseMoveEvent(QMouseEvent *event)
 void Canvas::mouseReleaseEvent(QMouseEvent *event) {
     unsetCursor(); // Change cursor back to default
     if (event->button() == Qt::LeftButton) {
-        
+        plan_->forCurrentLevelOfEachBuilding(currentLevel_, [this, event](const Building &, const Level &level) {
+            const auto &walls = level.getWalls();
+            for (const auto &wall : walls) {
+                const auto polygon = wall.areaPolygon();
+                if (polygon.containsPoint(toRealCoordinates(event->position()), Qt::OddEvenFill)) {
+                    // Handle wall selection or interaction here
+                    qInfo() << "Wall selected at position:" << toRealCoordinates(event->position());
+                }
+            }
+        });
     }
 }
 
