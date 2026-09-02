@@ -101,7 +101,8 @@ void Canvas::mouseReleaseEvent(QMouseEvent *event) {
                 const auto polygon = wall.areaPolygon();
                 if (polygon.containsPoint(toRealCoordinates(event->position()), Qt::OddEvenFill)) {
                     // Handle wall selection or interaction here
-                    qInfo() << "Wall selected at position:" << toRealCoordinates(event->position());
+                    qInfo() << "Wall selected: " << wall.id();
+                    emit wallSelected(wall);
                 }
             }
         });

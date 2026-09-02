@@ -5,14 +5,16 @@
 #include <QPen>
 #include <QVector2D>
 
-Wall::Wall(QPointF startPoint, QPointF endPoint) : startPoint_(startPoint), endPoint_(endPoint) {}
+Wall::Wall(QString id, QPointF startPoint, QPointF endPoint)
+    : id_(std::move(id)), startPoint_(startPoint), endPoint_(endPoint) {}
 
 std::expected<Wall, QString> Wall::fromJson(const QJsonObject &json) {
+    QString id = json.value("id").toString();
     auto start = json.value("start").toArray();
     auto end = json.value("end").toArray();
     QPointF startPoint(start[0].toDouble() / 1000.0, start[1].toDouble() / 1000.0); // Convert from mm to m
     QPointF endPoint(end[0].toDouble() / 1000.0, end[1].toDouble() / 1000.0); // Convert from mm to m
-    return Wall(startPoint, endPoint);
+    return Wall(std::move(id), startPoint, endPoint);
 }
 
 QPolygonF Wall::areaPolygon() const {

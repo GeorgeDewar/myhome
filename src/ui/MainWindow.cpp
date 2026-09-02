@@ -1,6 +1,7 @@
 #include "MainWindow.h"
 
 #include "Canvas.h"
+#include "model/Wall.h"
 
 #include <QAction>
 #include <QKeySequence>
@@ -46,6 +47,9 @@ MainWindow::MainWindow(QWidget *parent)
     layerBar->setAllowedAreas(Qt::LeftToolBarArea | Qt::RightToolBarArea);
 
     // Set up status bar
+    selectedItemLabel_ = new QLabel(this);
+    selectedItemLabel_->setText("Selected Wall: None");
+    statusBar()->addPermanentWidget(selectedItemLabel_);
     QLabel *cursorPositionLabel = new QLabel(this);
     statusBar()->addPermanentWidget(cursorPositionLabel);
     scaleLabel_ = new QLabel(this);
@@ -54,6 +58,8 @@ MainWindow::MainWindow(QWidget *parent)
     statusBar()->addPermanentWidget(offsetLabel_);
 
     // Listen to canvas events and update the status bar accordingly
+    connect(canvas, &Canvas::wallSelected,
+        this, &MainWindow::wallSelected);
     connect(canvas, &Canvas::cursorPositionChanged,
         cursorPositionLabel, [cursorPositionLabel](const QPointF &position) {
             cursorPositionLabel->setText(QString("Cursor X: %1mm  Y: %2mm").arg(position.x() * 1000.0, 0, 'f', 0).arg(position.y() * 1000.0, 0, 'f', 0));
@@ -82,6 +88,13 @@ void MainWindow::updateScale(double scale)
 void MainWindow::updateOffset(const QPointF &offset)
 {
     offsetLabel_->setText(QString("Offset X: %1mm  Y: %2mm").arg(offset.x() * 1000.0, 0, 'f', 0).arg(offset.y() * 1000.0, 0, 'f', 0));
+}
+
+void MainWindow::wallSelected(const Wall &wall)
+{
+    qInfo() << "Wall selected in MainWindow: " << wall.id();
+    selectedWall_ = &wall;
+    selectedItemLabel_->setText(QString("Selected Wall: %1").arg(wall.id()));
 }
 
 void MainWindow::loadFile(const QString &filePath)
