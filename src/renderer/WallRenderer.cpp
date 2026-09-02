@@ -39,10 +39,11 @@ void WallRenderer::renderWalls(const Plan &plan, int currentLevel) {
                 start - halfThickness.toPointF(),
             };
 
-            QPainterPath wallPath;
-            wallPath.addPolygon(polygon);
-            wallPath.closeSubpath();
-            wallArea = wallArea.united(wallPath);
+            QPainterPath wallFramingPath;
+            wallFramingPath.addPolygon(polygon);
+            wallFramingPath.closeSubpath();
+
+            wallArea = wallArea.united(wallFramingPath);
         }
 
         // Fill in the wall area, representing the framing, in solid yellow
@@ -57,11 +58,4 @@ void WallRenderer::renderWalls(const Plan &plan, int currentLevel) {
         painter_->setBrush(Qt::NoBrush);
         painter_->drawPath(wallArea);
     }
-}
-
-void WallRenderer::renderWallFrame(const Wall &wall) {
-    qDebug() << "Drawing wall from" << wall.startPoint() << "to" << wall.endPoint();
-    QPen pen(QColor(255, 215, 0), wall.thickness()); // 0.01 metres thick, scaled to pixels
-    painter_->setPen(pen);
-    painter_->drawLine(wall.startPoint(), wall.endPoint());
 }

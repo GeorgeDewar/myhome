@@ -14,6 +14,4 @@ class WallRenderer final {
     private:
         QPainter *painter_;
         Canvas *canvas_;
-
-        void renderWallFrame(const Wall &wall);
 };
