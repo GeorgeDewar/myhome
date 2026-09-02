@@ -16,6 +16,8 @@ public:
     const std::vector<Building>& getBuildings() const {
         return buildings_;
     }
+    int minLevel() const { return 0; }
+    int maxLevel() const { return 1; }
 
 private:
     std::vector<Building> buildings_;

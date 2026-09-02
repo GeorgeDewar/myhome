@@ -11,7 +11,7 @@
 #include <QFile>
 #include <QJsonDocument>
 #include <QJsonObject>
-
+#include <QToolBar>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -26,6 +26,20 @@ MainWindow::MainWindow(QWidget *parent)
 
     Canvas *canvas = new Canvas(this);
     setCentralWidget(canvas);
+
+    // Set up toolbar
+    QToolBar *toolbar = addToolBar("Main Toolbar");
+    upAction_ = toolbar->addAction("Up", canvas, [this, canvas]() {
+        canvas->setCurrentLevel(canvas->currentLevel() + 1);
+        updateCurrentLevel(canvas->currentLevel());
+    });
+    downAction_ = toolbar->addAction("Down", canvas, [this, canvas]() {
+        canvas->setCurrentLevel(canvas->currentLevel() - 1);
+        updateCurrentLevel(canvas->currentLevel());
+    });
+    updateCurrentLevel(canvas->currentLevel());
+
+    // Set up status bar
     QLabel *cursorPositionLabel = new QLabel(this);
     statusBar()->addPermanentWidget(cursorPositionLabel);
     scaleLabel_ = new QLabel(this);
@@ -87,4 +101,10 @@ void MainWindow::loadFile(const QString &filePath)
     qInfo() << "Successfully loaded plan from JSON:" << filePath;
 
     currentPlan_ = new Plan(planResult.value());
+}
+
+void MainWindow::updateCurrentLevel(int level)
+{
+    upAction_->setEnabled(currentPlan_ && level < currentPlan_->maxLevel());
+    downAction_->setEnabled(currentPlan_ && level > currentPlan_->minLevel());
 }

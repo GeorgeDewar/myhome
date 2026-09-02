@@ -23,6 +23,7 @@ public:
     QPointF toRealCoordinates(const QPointF &point);
     /** Set the current plan to be displayed on the canvas */
     void setPlan(const Plan *plan);
+    int currentLevel() const { return currentLevel_; }
     /** Set the current level of the plan to be displayed */
     void setCurrentLevel(int level);
     /** Check if a point in real-world coordinates is currently visible on the canvas */
