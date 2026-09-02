@@ -31,6 +31,7 @@ void WallRenderer::renderWalls(const Plan &plan, int currentLevel) {
             // Extend the wall endpoints by half the wall thickness, as it is the centrelines that join, not the edges
             const QPointF start = wall.startPoint() - unitDirection.toPointF() * (wall.thickness() / 2.0);
             const QPointF end = wall.endPoint() + unitDirection.toPointF() * (wall.thickness() / 2.0);
+            // Construct a four-point polygon representing the wall's area
             QPolygonF polygon {
                 start + halfThickness.toPointF(),
                 end + halfThickness.toPointF(),
@@ -44,10 +45,12 @@ void WallRenderer::renderWalls(const Plan &plan, int currentLevel) {
             wallArea = wallArea.united(wallPath);
         }
 
+        // Fill in the wall area, representing the framing, in solid yellow
         painter_->setPen(Qt::NoPen);
         painter_->setBrush(QColor(255, 215, 0));
         painter_->drawPath(wallArea);
 
+        // Draw the wall outlines in black
         QPen liningPen(Qt::black);
         liningPen.setWidth(0); // Cosmetic: always one physical screen pixel.
         painter_->setPen(liningPen);
