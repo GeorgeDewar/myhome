@@ -39,7 +39,6 @@ MainWindow::MainWindow(QWidget *parent)
         canvas->setCurrentLevel(canvas->currentLevel() - 1);
         updateCurrentLevel(canvas->currentLevel());
     });
-    updateCurrentLevel(canvas->currentLevel());
 
     // Set up layer bar
     QToolBar *layerBar = addToolBar("Layer Toolbar");
@@ -76,6 +75,7 @@ MainWindow::MainWindow(QWidget *parent)
     // Load our sample plan
     loadFile("data/McKeefry.json");
     canvas->setPlan(currentPlan_);
+    updateCurrentLevel(canvas->currentLevel());
 
     statusBar()->showMessage("Ready");
 }
@@ -124,6 +124,10 @@ void MainWindow::loadFile(const QString &filePath)
 
 void MainWindow::updateCurrentLevel(int level)
 {
+    qDebug() << "Updating current level to:" << level;
+    qDebug() << "Current plan:" << currentPlan_;
+    qDebug() << "Max level:" << (currentPlan_ ? currentPlan_->maxLevel() : -1);
+    qDebug() << "Min level:" << (currentPlan_ ? currentPlan_->minLevel() : -1);
     upAction_->setEnabled(currentPlan_ && level < currentPlan_->maxLevel());
     downAction_->setEnabled(currentPlan_ && level > currentPlan_->minLevel());
     currentLevelLabel_->setText(QString("Level %1 ").arg(level));

@@ -7,7 +7,6 @@
         {
           "number": 0,
           "name": "Downstairs",
-          "position": [0, 0],
           "ceilingHeight": 2420,
           "totalHeight": 2420,
           "walls": [
@@ -55,7 +54,6 @@
         {
           "number": 1,
           "name": "Upstairs",
-          "position": [0, 1776],
           "ceilingHeight": 2420,
           "walls": [
             { "id": "wall0", "start": [10796, 8257], "end": [22857, 8257] },
@@ -63,7 +61,18 @@
             { "id": "wall2", "start": [22857, 15646], "end": [10796, 15646] },
             { "id": "wall3", "start": [10796, 15646], "end": [10796, 8257] },
             { "id": "wall4", "start": [14327, 8257], "end": [14327, 11187] },
-            { "id": "wall5", "start": [10796, 11187], "end": [18964, 11187] },
+            {
+              "id": "wall5",
+              "start": [10796, 11187],
+              "end": [18964, 11187],
+              "doors": [
+                { "id": "door0", "distanceAlongWall": 997, "width": 1500, "height": 2100 },
+                { "id": "door1", "distanceAlongWall": 2812, "width": 800, "height": 2100 },
+                { "id": "door2", "distanceAlongWall": 4708, "width": 800, "height": 2100 },
+                { "id": "door3", "distanceAlongWall": 5781, "width": 785, "height": 2100 },
+                { "id": "door4", "distanceAlongWall": 6846, "width": 394, "height": 2100 }
+              ]
+            },
             { "id": "wall6", "start": [22857, 12247], "end": [19659, 12247] },
             { "id": "wall7", "start": [18964, 11187], "end": [19659, 12247] },
             { "id": "wall8", "start": [18175, 8257], "end": [18175, 11187] },
@@ -108,8 +117,7 @@
         },
         {
           "number": 2,
-          "name": "Attic",
-          "position": [0, 1776]
+          "name": "Attic"
         }
       ]
     }
