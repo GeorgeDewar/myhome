@@ -11,3 +11,22 @@ std::expected<Opening, QString> Opening::fromJson(const QJsonObject &json) {
     double height = json.value("height").toDouble() / 1000.0; // Convert from mm to m
     return Opening(std::move(id), distanceAlongWall, distanceFromFloor, width, height);
 }
+
+// QPolygonF Opening::areaPolygon() const {
+//     const QVector2D direction(endPoint_ - startPoint_);
+//     if (direction.isNull()) {
+//         return {};
+//     }
+
+//     const QVector2D unitDirection = direction.normalized();
+//     const QVector2D halfThickness(-unitDirection.y() * thickness_ / 2.0,
+//                                   unitDirection.x() * thickness_ / 2.0);
+//     const QPointF start = startPoint_ - unitDirection.toPointF() * (thickness_ / 2.0);
+//     const QPointF end = endPoint_ + unitDirection.toPointF() * (thickness_ / 2.0);
+//     return {
+//         start + halfThickness.toPointF(),
+//         end + halfThickness.toPointF(),
+//         end - halfThickness.toPointF(),
+//         start - halfThickness.toPointF(),
+//     };
+// }

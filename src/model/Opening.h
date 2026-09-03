@@ -17,6 +17,7 @@ class Opening final
         double distanceFromFloor() const { return distanceFromFloor_; }
         double width() const { return width_; }
         double height() const { return height_; }
+        double edgeDistanceFromWall() const { return distanceAlongWall_ - (width_ / 2.0); }
     
     private:
         QString id_;

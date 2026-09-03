@@ -16,7 +16,10 @@ class Wall final
         QPointF startPoint() const { return startPoint_; }
         QPointF endPoint() const { return endPoint_; }
         double thickness() const { return thickness_; }
+        /** Return the polygon representing the area of the wall, excluding linings */
         QPolygonF areaPolygon() const;
+        /** Return the polygon representing the area of the given opening within the wall, with the same thickness as areaPolygon */
+        QPolygonF openingPolygon(const Opening& opening) const;
         const std::vector<Opening>& doors() const { return doors_; }
         const std::vector<Opening>& windows() const { return windows_; }
     

@@ -15,7 +15,7 @@ std::expected<Wall, QString> Wall::fromJson(const QJsonObject &json) {
     QPointF startPoint(start[0].toDouble() / 1000.0, start[1].toDouble() / 1000.0); // Convert from mm to m
     QPointF endPoint(end[0].toDouble() / 1000.0, end[1].toDouble() / 1000.0); // Convert from mm to m
     double thickness = json.value("thickness").toDouble(0.1); // Default thickness in metres
-    
+
     // Parse doors
     std::vector<Opening> doors;
     auto doorsArray = json.value("doors").toArray();
@@ -51,6 +51,25 @@ QPolygonF Wall::areaPolygon() const {
                                   unitDirection.x() * thickness_ / 2.0);
     const QPointF start = startPoint_ - unitDirection.toPointF() * (thickness_ / 2.0);
     const QPointF end = endPoint_ + unitDirection.toPointF() * (thickness_ / 2.0);
+    return {
+        start + halfThickness.toPointF(),
+        end + halfThickness.toPointF(),
+        end - halfThickness.toPointF(),
+        start - halfThickness.toPointF(),
+    };
+}
+
+QPolygonF Wall::openingPolygon(const Opening& opening) const {
+    const QVector2D direction(endPoint_ - startPoint_);
+    if (direction.isNull()) {
+        return {};
+    }
+
+    const QVector2D unitDirection = direction.normalized();
+    const QVector2D halfThickness(-unitDirection.y() * thickness_ / 2.0,
+                                  unitDirection.x() * thickness_ / 2.0);
+    const QPointF start = startPoint_ + unitDirection.toPointF() * (opening.edgeDistanceFromWall());
+    const QPointF end = start + unitDirection.toPointF() * (opening.width());
     return {
         start + halfThickness.toPointF(),
         end + halfThickness.toPointF(),
