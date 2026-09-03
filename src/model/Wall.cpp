@@ -5,8 +5,8 @@
 #include <QPen>
 #include <QVector2D>
 
-Wall::Wall(QString id, QPointF startPoint, QPointF endPoint)
-    : id_(std::move(id)), startPoint_(startPoint), endPoint_(endPoint) {}
+Wall::Wall(QString id, QPointF startPoint, QPointF endPoint, double thickness)
+    : id_(std::move(id)), startPoint_(startPoint), endPoint_(endPoint), thickness_(thickness) {}
 
 std::expected<Wall, QString> Wall::fromJson(const QJsonObject &json) {
     QString id = json.value("id").toString();
@@ -14,7 +14,30 @@ std::expected<Wall, QString> Wall::fromJson(const QJsonObject &json) {
     auto end = json.value("end").toArray();
     QPointF startPoint(start[0].toDouble() / 1000.0, start[1].toDouble() / 1000.0); // Convert from mm to m
     QPointF endPoint(end[0].toDouble() / 1000.0, end[1].toDouble() / 1000.0); // Convert from mm to m
-    return Wall(std::move(id), startPoint, endPoint);
+    double thickness = json.value("thickness").toDouble(0.1); // Default thickness in metres
+    
+    // Parse doors
+    std::vector<Opening> doors;
+    auto doorsArray = json.value("doors").toArray();
+    for (const auto &doorValue : doorsArray) {
+        if (auto door = Opening::fromJson(doorValue.toObject()); door) {
+            doors.push_back(*door);
+        }
+    }
+
+    // Parse windows
+    std::vector<Opening> windows;
+    auto windowsArray = json.value("windows").toArray();
+    for (const auto &windowValue : windowsArray) {
+        if (auto window = Opening::fromJson(windowValue.toObject()); window) {
+            windows.push_back(*window);
+        }
+    }
+
+    Wall wall(std::move(id), startPoint, endPoint, thickness);
+    wall.doors_ = std::move(doors);
+    wall.windows_ = std::move(windows);
+    return wall;
 }
 
 QPolygonF Wall::areaPolygon() const {

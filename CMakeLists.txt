@@ -10,6 +10,7 @@ add_executable(myhome WIN32
 	src/main.cpp
 	src/model/Building.cpp
 	src/model/Level.cpp
+	src/model/Opening.cpp
 	src/model/Plan.cpp
 	src/model/Wall.cpp
 	src/renderer/WallRenderer.cpp

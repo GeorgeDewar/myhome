@@ -4,11 +4,12 @@
 #include <QString>
 #include <expected>
 #include <QJsonObject>
+#include "Opening.h"
 
 class Wall final
 {
     public:
-        Wall(QString id, QPointF startPoint, QPointF endPoint);
+        Wall(QString id, QPointF startPoint, QPointF endPoint, double thickness);
         static std::expected<Wall, QString> fromJson(const QJsonObject &json);
 
         const QString& id() const { return id_; }
@@ -16,10 +17,14 @@ class Wall final
         QPointF endPoint() const { return endPoint_; }
         double thickness() const { return thickness_; }
         QPolygonF areaPolygon() const;
+        const std::vector<Opening>& doors() const { return doors_; }
+        const std::vector<Opening>& windows() const { return windows_; }
     
     private:
         QString id_;
         QPointF startPoint_;
         QPointF endPoint_;
         double thickness_ {0.1}; // Default thickness in metres
+        std::vector<Opening> doors_ {};
+        std::vector<Opening> windows_ {};
 };
