@@ -14,6 +14,7 @@ add_executable(myhome WIN32
 	src/model/Plan.cpp
 	src/model/Wall.cpp
 	src/renderer/WallRenderer.cpp
+	src/renderer/WindowRenderer.cpp
 	src/ui/Canvas.cpp
 	src/ui/MainWindow.cpp
 )

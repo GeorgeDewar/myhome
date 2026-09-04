@@ -1,10 +1,12 @@
 #include "WallRenderer.h"
+#include "WindowRenderer.h"
 #include "model/Plan.h"
 #include <QPen>
 #include <QPainterPath>
 
 void WallRenderer::renderWalls(const Plan &plan, int currentLevel) {
-    plan.forCurrentLevelOfEachBuilding(currentLevel, [this](const Building &, const Level &level) {
+    WindowRenderer windowRenderer(painter_);
+    plan.forCurrentLevelOfEachBuilding(currentLevel, [this, &windowRenderer](const Building &, const Level &level) {
         const auto &walls = level.getWalls();
         QPainterPath wallArea;
         for (const auto &wall : walls) {
@@ -51,5 +53,11 @@ void WallRenderer::renderWalls(const Plan &plan, int currentLevel) {
         painter_->setPen(liningPen);
         painter_->setBrush(Qt::NoBrush);
         painter_->drawPath(wallArea);
+
+        for (const auto &wall : walls) {
+            for (const auto &window : wall.windows()) {
+                windowRenderer.renderWindow(wall, window);
+            }
+        }
     });
 }

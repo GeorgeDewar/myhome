@@ -4,6 +4,7 @@
 #include <QString>
 #include <expected>
 #include <QJsonObject>
+#include <QVector2D>
 #include "Opening.h"
 
 class Wall final
@@ -16,6 +17,8 @@ class Wall final
         QPointF startPoint() const { return startPoint_; }
         QPointF endPoint() const { return endPoint_; }
         double thickness() const { return thickness_; }
+        const QVector2D& direction() const { return direction_; }
+        const QVector2D& unitDirection() const { return unitDirection_; }
         /** Return the polygon representing the area of the wall, excluding linings */
         QPolygonF areaPolygon() const;
         /** Return the polygon representing the area of the given opening within the wall, with the same thickness as areaPolygon */
@@ -28,6 +31,8 @@ class Wall final
         QPointF startPoint_;
         QPointF endPoint_;
         double thickness_ {0.1}; // Default thickness in metres
+        const QVector2D direction_ { QVector2D(endPoint_ - startPoint_) };
+        const QVector2D unitDirection_ { direction_.normalized() };
         std::vector<Opening> doors_ {};
         std::vector<Opening> windows_ {};
 };
