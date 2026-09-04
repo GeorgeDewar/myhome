@@ -26,8 +26,8 @@ public:
             function(building, levels[currentLevel]);
         }
     }
-    int minLevel() const { return 0; }
-    int maxLevel() const { return 1; }
+    int minLevel() const { return 0; } // TODO: Calculate based on buildings
+    int maxLevel() const { return 3; } // TODO: Calculate based on buildings
 
 private:
     std::vector<Building> buildings_;

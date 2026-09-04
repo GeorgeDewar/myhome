@@ -85,6 +85,33 @@
                             }
                           }
                         }
+                      },
+                      "windows": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "required": ["id", "width", "height", "distanceAlongWall", "distanceFromFloor"],
+                          "unevaluatedProperties": false,
+                          "properties": {
+                            "id": { "type": "string" },
+                            "width": {
+                              "type": "number",
+                              "description": "Width of the window (the opening) in millimetres"
+                            },
+                            "height": {
+                              "type": "number",
+                              "description": "Height of the window (the opening) in millimetres"
+                            },
+                            "distanceAlongWall": {
+                              "type": "number",
+                              "description": "Position of the center of the window along the wall, in millimetres. The position is measured from the start of the wall."
+                            },
+                            "distanceFromFloor": {
+                              "type": "number",
+                              "description": "Distance of the bottom of the window from the floor, in millimetres."
+                            }
+                          }
+                        }
                       }
                     }
                   }
