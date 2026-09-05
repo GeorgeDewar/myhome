@@ -9,6 +9,7 @@ class QPaintEvent;
 class QMouseEvent;
 class QPoint;
 class QPainter;
+class QKeyEvent;
 class QWheelEvent;
 
 class Canvas final : public QWidget
@@ -43,11 +44,13 @@ protected:
     void mousePressEvent(QMouseEvent *event) override;
     void mouseMoveEvent(QMouseEvent *event) override;
     void mouseReleaseEvent(QMouseEvent *event) override;
+    void keyPressEvent(QKeyEvent *event) override;
     void wheelEvent(QWheelEvent *event) override;
 
 private:
     static constexpr double minimumScale_ = 10.0; // pixels per metre, fully zoomed out
     static constexpr double maximumScale_ = 640.0; // pixels per metre, fully zoomed in
+    static constexpr double keyboardPanDistance_ = 50.0; // pixels per key press
 
     /** Offset of the top-left of the canvas from the origin of the coordinate system, in metres */
     QPointF offset_ {-1.0, -1.0};

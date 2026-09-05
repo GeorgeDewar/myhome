@@ -2,6 +2,7 @@
 
 #include <QPaintEvent>
 #include <QMouseEvent>
+#include <QKeyEvent>
 #include <QPainter>
 #include "model/Plan.h"
 #include "model/Building.h"
@@ -13,6 +14,8 @@ Canvas::Canvas(QWidget *parent)
 {
     setMinimumSize(400, 300);
     setMouseTracking(true);
+    setFocusPolicy(Qt::StrongFocus);
+    setFocus();
 }
 
 void Canvas::paintEvent(QPaintEvent *event)
@@ -118,6 +121,32 @@ void Canvas::mouseReleaseEvent(QMouseEvent *event) {
             }
         });
     }
+}
+
+void Canvas::keyPressEvent(QKeyEvent *event)
+{
+    const double panDistance = keyboardPanDistance_ / scale_;
+    switch (event->key()) {
+    case Qt::Key_Left:
+        offset_.rx() -= panDistance;
+        break;
+    case Qt::Key_Right:
+        offset_.rx() += panDistance;
+        break;
+    case Qt::Key_Up:
+        offset_.ry() -= panDistance;
+        break;
+    case Qt::Key_Down:
+        offset_.ry() += panDistance;
+        break;
+    default:
+        QWidget::keyPressEvent(event);
+        return;
+    }
+
+    emit offsetChanged(offset_);
+    update();
+    event->accept();
 }
 
 double Canvas::scale() const
