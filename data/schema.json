@@ -96,7 +96,7 @@
                             "swingDirection": {
                               "type": "string",
                               "enum": ["in", "out"],
-                              "description": "Direction the door swings when opening, viewed from the A-side of the wall the door is installed in"
+                              "description": "Direction the door swings when opening, viewed from the A-side of the wall the door is installed in (in being toward the observer)"
                             }
                           }
                         }

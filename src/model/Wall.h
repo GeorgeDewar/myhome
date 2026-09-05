@@ -1,11 +1,12 @@
 #pragma once
 
+#include "Opening.h"
 #include <QPoint>
 #include <QString>
 #include <expected>
 #include <QJsonObject>
 #include <QVector2D>
-#include "Opening.h"
+#include <QtMath>
 
 class Wall final
 {
@@ -19,6 +20,7 @@ class Wall final
         double thickness() const { return thickness_; }
         const QVector2D& direction() const { return direction_; }
         const QVector2D& unitDirection() const { return unitDirection_; }
+        const double angle() const { return qRadiansToDegrees(std::atan2(unitDirection_.y(), unitDirection_.x())); }
         /** Return the polygon representing the area of the wall, excluding linings */
         QPolygonF areaPolygon() const;
         /** Return the polygon representing the area of the given opening within the wall, with the same thickness as areaPolygon */

@@ -3,6 +3,7 @@
 #include <QMainWindow>
 #include "model/Plan.h"
 #include "model/Wall.h"
+#include "model/Opening.h"
 
 class QLabel;
 class QPointF;
@@ -18,6 +19,7 @@ private:
     void loadFile(const QString &filePath);
     void updateCurrentLevel(int level);
     void wallSelected(const Wall &wall);
+    void doorSelected(const Opening &door);
 
     QLabel *scaleLabel_;
     QLabel *offsetLabel_;
@@ -28,4 +30,5 @@ private:
 
     Plan *currentPlan_ { nullptr };
     const Wall *selectedWall_ { nullptr }; // TODO: change to a generic selected object
+    const Opening *selectedDoor_ { nullptr };
 };

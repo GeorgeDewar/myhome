@@ -98,6 +98,17 @@ void Canvas::mouseReleaseEvent(QMouseEvent *event) {
         plan_->forCurrentLevelOfEachBuilding(currentLevel_, [this, event](const Building &, const Level &level) {
             const auto &walls = level.getWalls();
             for (const auto &wall : walls) {
+                // First check if the click is over an opening
+                for (const auto &opening : wall.doors()) {
+                    const auto openingPolygon = wall.openingPolygon(opening);
+                    if (openingPolygon.containsPoint(toRealCoordinates(event->position()), Qt::OddEvenFill)) {
+                        // Handle opening selection or interaction here
+                        qInfo() << "Door selected: " << opening.id();
+                        emit doorSelected(opening);
+                        return; // Exit after handling the first matching opening
+                    }
+                }
+
                 const auto polygon = wall.areaPolygon();
                 if (polygon.containsPoint(toRealCoordinates(event->position()), Qt::OddEvenFill)) {
                     // Handle wall selection or interaction here

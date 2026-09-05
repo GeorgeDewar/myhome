@@ -59,6 +59,8 @@ MainWindow::MainWindow(QWidget *parent)
     // Listen to canvas events and update the status bar accordingly
     connect(canvas, &Canvas::wallSelected,
         this, &MainWindow::wallSelected);
+    connect(canvas, &Canvas::doorSelected,
+        this, &MainWindow::doorSelected);
     connect(canvas, &Canvas::cursorPositionChanged,
         cursorPositionLabel, [cursorPositionLabel](const QPointF &position) {
             cursorPositionLabel->setText(QString("Cursor X: %1mm  Y: %2mm").arg(position.x() * 1000.0, 0, 'f', 0).arg(position.y() * 1000.0, 0, 'f', 0));
@@ -92,9 +94,21 @@ void MainWindow::updateOffset(const QPointF &offset)
 
 void MainWindow::wallSelected(const Wall &wall)
 {
-    qInfo() << "Wall selected in MainWindow: " << wall.id();
+    qInfo() << "Wall selected in MainWindow: " << wall.id() << " at angle: " << wall.angle();
     selectedWall_ = &wall;
-    selectedItemLabel_->setText(QString("Selected Wall: %1").arg(wall.id()));
+    selectedItemLabel_->setText(QString("Selected Wall: %1, %2").arg(wall.id()).arg(wall.angle()));
+}
+
+void MainWindow::doorSelected(const Opening &door)
+{
+    qInfo() << "Door selected in MainWindow: " << door.id();
+    selectedDoor_ = &door;
+    std::string hingeSideStr = (door.hingeSide() == HingeSide::Left) ? "Left" : "Right";
+    std::string swingDirectionStr = (door.swingDirection() == SwingDirection::Inward) ? "Inward" : "Outward";
+    selectedItemLabel_->setText(QString("Selected Door: %1, Hinge: %2, Swing: %3")
+        .arg(door.id())
+        .arg(QString::fromStdString(hingeSideStr))
+        .arg(QString::fromStdString(swingDirectionStr)));
 }
 
 void MainWindow::loadFile(const QString &filePath)
