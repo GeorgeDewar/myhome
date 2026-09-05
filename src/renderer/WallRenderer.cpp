@@ -1,12 +1,14 @@
 #include "WallRenderer.h"
+#include "DoorRenderer.h"
 #include "WindowRenderer.h"
 #include "model/Plan.h"
 #include <QPen>
 #include <QPainterPath>
 
 void WallRenderer::renderWalls(const Plan &plan, int currentLevel) {
+    DoorRenderer doorRenderer(painter_);
     WindowRenderer windowRenderer(painter_);
-    plan.forCurrentLevelOfEachBuilding(currentLevel, [this, &windowRenderer](const Building &, const Level &level) {
+    plan.forCurrentLevelOfEachBuilding(currentLevel, [this, &doorRenderer, &windowRenderer](const Building &, const Level &level) {
         const auto &walls = level.getWalls();
         QPainterPath wallArea;
         for (const auto &wall : walls) {
@@ -55,6 +57,9 @@ void WallRenderer::renderWalls(const Plan &plan, int currentLevel) {
         painter_->drawPath(wallArea);
 
         for (const auto &wall : walls) {
+            for (const auto &door : wall.doors()) {
+                doorRenderer.renderDoor(wall, door);
+            }
             for (const auto &window : wall.windows()) {
                 windowRenderer.renderWindow(wall, window);
             }

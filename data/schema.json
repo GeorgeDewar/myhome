@@ -74,6 +74,11 @@
                               "type": "number",
                               "description": "Height of the door (the opening) in millimetres"
                             },
+                            "thickness": {
+                              "type": "number",
+                              "description": "Thickness of the door leaf in millimetres",
+                              "default": 35
+                            },
                             "distanceAlongWall": {
                               "type": "number",
                               "description": "Position of the center of the door along the wall, in millimetres. The position is measured from the start of the wall."

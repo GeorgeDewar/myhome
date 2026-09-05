@@ -9,7 +9,8 @@ std::expected<Opening, QString> Opening::fromJson(const QJsonObject &json) {
     double distanceFromFloor = json.value("distanceFromFloor").toDouble() / 1000.0; // Convert from mm to m
     double width = json.value("width").toDouble() / 1000.0; // Convert from mm to m
     double height = json.value("height").toDouble() / 1000.0; // Convert from mm to m
-    return Opening(std::move(id), distanceAlongWall, distanceFromFloor, width, height);
+    double thickness = json.value("thickness").toDouble(35.0) / 1000.0; // Convert from mm to m
+    return Opening(std::move(id), distanceAlongWall, distanceFromFloor, width, height, thickness);
 }
 
 // QPolygonF Opening::areaPolygon() const {
