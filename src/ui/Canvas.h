@@ -5,6 +5,7 @@
 class Plan;
 class Wall;
 class Opening;
+class StandardDoor;
 class QPaintEvent;
 class QMouseEvent;
 class QPoint;
@@ -37,7 +38,7 @@ signals:
     void scaleChanged(double scale);
     void offsetChanged(const QPointF &offset);
     void wallSelected(const Wall &wall);
-    void doorSelected(const Opening &door);
+    void doorSelected(const StandardDoor &door);
 
 protected:
     void paintEvent(QPaintEvent *event) override;

@@ -3,6 +3,7 @@
 #include <QJsonArray>
 #include <expected>
 #include "Wall.h"
+#include <utility>
 
 std::expected<Level, QString> Level::fromJson(const QJsonObject &json) {
     Level level;
@@ -11,7 +12,7 @@ std::expected<Level, QString> Level::fromJson(const QJsonObject &json) {
         qDebug() << "Parsing wall " << i;
         QJsonObject wallObj = wallsArray[i].toObject();
         Wall wall = Wall::fromJson(wallObj).value();
-        level.walls_.push_back(wall);
+        level.walls_.push_back(std::move(wall));
     }
     return level;
 }

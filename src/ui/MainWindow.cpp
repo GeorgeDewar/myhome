@@ -2,6 +2,7 @@
 
 #include "Canvas.h"
 #include "model/Wall.h"
+#include "model/StandardDoor.h"
 
 #include <QAction>
 #include <QKeySequence>
@@ -13,6 +14,7 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QToolBar>
+#include <utility>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -99,12 +101,12 @@ void MainWindow::wallSelected(const Wall &wall)
     selectedItemLabel_->setText(QString("Selected Wall: %1, %2").arg(wall.id()).arg(wall.angle()));
 }
 
-void MainWindow::doorSelected(const Opening &door)
+void MainWindow::doorSelected(const StandardDoor &door)
 {
     qInfo() << "Door selected in MainWindow: " << door.id();
     selectedDoor_ = &door;
-    std::string hingeSideStr = (door.hingeSide() == HingeSide::Left) ? "Left" : "Right";
-    std::string swingDirectionStr = (door.swingDirection() == SwingDirection::Inward) ? "Inward" : "Outward";
+    std::string hingeSideStr = (door.hingeSide == HingeSide::Left) ? "Left" : "Right";
+    std::string swingDirectionStr = (door.swingDirection == SwingDirection::Inward) ? "Inward" : "Outward";
     selectedItemLabel_->setText(QString("Selected Door: %1, Hinge: %2, Swing: %3")
         .arg(door.id())
         .arg(QString::fromStdString(hingeSideStr))
@@ -133,7 +135,7 @@ void MainWindow::loadFile(const QString &filePath)
     }
     qInfo() << "Successfully loaded plan from JSON:" << filePath;
 
-    currentPlan_ = new Plan(planResult.value());
+    currentPlan_ = new Plan(std::move(planResult.value()));
 }
 
 void MainWindow::updateCurrentLevel(int level)

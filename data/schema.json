@@ -22,14 +22,8 @@
               "required": ["number", "name"],
               "unevaluatedProperties": false,
               "properties": {
-                "number": {
-                  "type": "integer",
-                  "description": "Floor number, starting from 0 for the ground floor"
-                },
-                "name": {
-                  "type": "string",
-                  "description": "Displayable name of the floor"
-                },
+                "number": { "type": "integer", "description": "Floor number, starting from 0 for the ground floor" },
+                "name": { "type": "string", "description": "Displayable name of the floor" },
                 "ceilingHeight": {
                   "type": "number",
                   "description": "Height of the ceiling in millimetres, from the unfinished floor surface to the ceiling surface above"
@@ -54,11 +48,8 @@
                         "$ref": "#/$defs/position",
                         "description": "Position of the end of the wall (right side when viewing face A) relative to the floor, in millimetres. The position is midway through the thickness of the wall."
                       },
-                      "width": {
-                        "type": "number",
-                        "description": "Width of the wall in millimetres"
-                      },
-                      "doors": {
+                      "width": { "type": "number", "description": "Width of the wall in millimetres" },
+                      "openings": {
                         "type": "array",
                         "items": {
                           "type": "object",
@@ -83,47 +74,41 @@
                               "description": "Distance of the bottom of the door from the floor, in millimetres.",
                               "default": 0
                             },
-                            "thickness": {
-                              "type": "number",
-                              "description": "Thickness of the door leaf in millimetres",
-                              "default": 35
-                            },
-                            "hingeSide": {
-                              "type": "string",
-                              "enum": ["left", "right"],
-                              "description": "Which side of the door is hinged, as viewed from the side of the door that you push"
-                            },
-                            "swingDirection": {
-                              "type": "string",
-                              "enum": ["in", "out"],
-                              "description": "Direction the door swings when opening, viewed from the A-side of the wall the door is installed in (in being toward the observer)"
-                            }
-                          }
-                        }
-                      },
-                      "windows": {
-                        "type": "array",
-                        "items": {
-                          "type": "object",
-                          "required": ["id", "width", "height", "distanceAlongWall", "distanceFromFloor"],
-                          "unevaluatedProperties": false,
-                          "properties": {
-                            "id": { "type": "string" },
-                            "width": {
-                              "type": "number",
-                              "description": "Width of the window (the opening) in millimetres"
-                            },
-                            "height": {
-                              "type": "number",
-                              "description": "Height of the window (the opening) in millimetres"
-                            },
-                            "distanceAlongWall": {
-                              "type": "number",
-                              "description": "Position of the center of the window along the wall, in millimetres. The position is measured from the start of the wall."
-                            },
-                            "distanceFromFloor": {
-                              "type": "number",
-                              "description": "Distance of the bottom of the window from the floor, in millimetres."
+                            "contents": {
+                              "type": "array",
+                              "items": {
+                                "anyOf": [
+                                  {
+                                    "type": "object",
+                                    "required": ["type", "hingeSide", "swingDirection"],
+                                    "unevaluatedProperties": false,
+                                    "properties": {
+                                      "type": { "const": "StandardDoor" },
+                                      "hingeSide": {
+                                        "type": "string",
+                                        "enum": ["left", "right"],
+                                        "description": "Which side of the door is hinged, as viewed from the A-side of the wall the door is installed in"
+                                      },
+                                      "swingDirection": {
+                                        "type": "string",
+                                        "enum": ["in", "out"],
+                                        "description": "Direction the door swings when opening, viewed from the A-side of the wall the door is installed in (in being toward the observer)"
+                                      },
+                                      "thickness": {
+                                        "type": "number",
+                                        "description": "Thickness of the door leaf in millimetres",
+                                        "default": 35
+                                      }
+                                    }
+                                  },
+                                  {
+                                    "type": "object",
+                                    "required": ["type"],
+                                    "unevaluatedProperties": false,
+                                    "properties": { "type": { "const": "StandardWindow" } }
+                                  }
+                                ]
+                              }
                             }
                           }
                         }
@@ -144,11 +129,7 @@
                         "items": {
                           "type": "object",
                           "unevaluatedProperties": false,
-                          "properties": {
-                            "ref": {
-                              "type": "string"
-                            }
-                          }
+                          "properties": { "ref": { "type": "string" } }
                         }
                       }
                     }

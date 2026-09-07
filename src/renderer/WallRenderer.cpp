@@ -2,6 +2,8 @@
 #include "DoorRenderer.h"
 #include "WindowRenderer.h"
 #include "model/Plan.h"
+#include "model/OpeningItem.h"
+#include "model/StandardDoor.h"
 #include <QPen>
 #include <QPainterPath>
 
@@ -22,22 +24,13 @@ void WallRenderer::renderWalls(const Plan &plan, int currentLevel) {
             wallFramingPath.addPolygon(polygon);
             wallFramingPath.closeSubpath();
             
-            for (const auto &door : wall.doors()) {
-                const QPolygonF doorPolygon = wall.openingPolygon(door);
-                if (!doorPolygon.isEmpty()) {
-                    QPainterPath doorPath;
-                    doorPath.addPolygon(doorPolygon);
-                    doorPath.closeSubpath();
-                    wallFramingPath = wallFramingPath.subtracted(doorPath);
-                }
-            }
-            for (const auto &window : wall.windows()) {
-                const QPolygonF windowPolygon = wall.openingPolygon(window);
-                if (!windowPolygon.isEmpty()) {
-                    QPainterPath windowPath;
-                    windowPath.addPolygon(windowPolygon);
-                    windowPath.closeSubpath();
-                    wallFramingPath = wallFramingPath.subtracted(windowPath);
+            for (const auto &opening : wall.openings()) {
+                const QPolygonF openingPolygon = wall.openingPolygon(opening);
+                if (!openingPolygon.isEmpty()) {
+                    QPainterPath openingPath;
+                    openingPath.addPolygon(openingPolygon);
+                    openingPath.closeSubpath();
+                    wallFramingPath = wallFramingPath.subtracted(openingPath);
                 }
             }
 
@@ -57,11 +50,16 @@ void WallRenderer::renderWalls(const Plan &plan, int currentLevel) {
         painter_->drawPath(wallArea);
 
         for (const auto &wall : walls) {
-            for (const auto &door : wall.doors()) {
-                doorRenderer.renderDoor(wall, door);
-            }
-            for (const auto &window : wall.windows()) {
-                windowRenderer.renderWindow(wall, window);
+            for (const auto &opening : wall.openings()) {
+                for (const auto &item : opening.contents()) {
+                    if (item->type() == "StandardDoor") {
+                        doorRenderer.renderDoor(wall, opening, static_cast<const StandardDoor&>(*item));
+                    } else if (item->type() == "StandardWindow") {
+                        windowRenderer.renderWindow(wall, opening);
+                    } else {
+                        qDebug() << "Unknown opening item type: " << QString::fromStdString(item->type());
+                    }
+                }
             }
         }
     });
