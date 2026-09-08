@@ -14,6 +14,7 @@ add_executable(myhome WIN32
 	src/model/OpeningItem.cpp
 	src/model/Plan.cpp
 	src/model/StandardDoor.cpp
+	src/model/StandardWindow.cpp
 	src/model/Wall.cpp
 	src/renderer/DoorRenderer.cpp
 	src/renderer/WallRenderer.cpp
