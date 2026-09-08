@@ -19,5 +19,11 @@ std::expected<Opening, QString> Opening::fromJson(const QJsonObject &json) {
             opening.contents_.push_back(std::move(openingItem));
         }
     }
+    if (opening.contents_.size() == 1) {
+        // If there's only one item, set its width and height to match the opening's dimensions
+        opening.contents_[0]->setId(opening.id()); // Set the door's ID to match the opening's ID
+        opening.contents_[0]->setWidth(opening.width());
+        opening.contents_[0]->setHeight(opening.height());
+    }
     return opening;
 }

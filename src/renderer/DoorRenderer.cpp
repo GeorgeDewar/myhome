@@ -48,5 +48,5 @@ void DoorRenderer::renderDoor(const Wall &wall, const Opening &opening, const St
     };
     painter_->drawPolygon(doorLeaf);
 
-    qDebug() << "Door " << door.id() << ": Door start:" << doorStart << "Door end:" << doorEnd << "Hinge:" << hinge << "Open angle:" << openAngle << "Sweep angle:" << sweepAngle;
+    qDebug() << "Door " << door.id() << ": Door start:" << doorStart << "Door end:" << doorEnd << "Hinge:" << hinge << "Open angle:" << openAngle << "Sweep angle:" << sweepAngle << "Thickness:" << door.thickness;
 }
