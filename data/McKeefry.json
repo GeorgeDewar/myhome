@@ -1,5 +1,4 @@
 {
-  "$schema": "./schema.json",
   "buildings": [
     {
       "name": "Home",
@@ -8,7 +7,7 @@
           "number": 0,
           "name": "Downstairs",
           "ceilingHeight": 2420,
-          "totalHeight": 2420,
+          "totalHeight": 2620,
           "walls": [
             {
               "id": "wall13",
@@ -18,25 +17,25 @@
                 {
                   "id": "window0",
                   "distanceAlongWall": 1000,
+                  "distanceFromFloor": 800,
                   "width": 900,
                   "height": 1200,
-                  "distanceFromFloor": 800,
                   "contents": [{ "type": "StandardWindow" }]
                 },
                 {
                   "id": "window1",
                   "distanceAlongWall": 2063,
+                  "distanceFromFloor": 800,
                   "width": 900,
                   "height": 1200,
-                  "distanceFromFloor": 800,
                   "contents": [{ "type": "StandardWindow" }]
                 },
                 {
                   "id": "window2",
                   "distanceAlongWall": 5784,
+                  "distanceFromFloor": 800,
                   "width": 3460,
                   "height": 1200,
-                  "distanceFromFloor": 800,
                   "contents": [{ "type": "StandardWindow" }]
                 }
               ]
@@ -49,41 +48,41 @@
                 {
                   "id": "door0",
                   "distanceAlongWall": 2076,
+                  "distanceFromFloor": 0,
                   "width": 600,
                   "height": 2100,
-                  "distanceFromFloor": 0,
                   "contents": [{ "type": "StandardDoor", "hingeSide": "left", "swingDirection": "out" }]
                 },
                 {
                   "id": "door1",
                   "distanceAlongWall": 2831,
+                  "distanceFromFloor": 0,
                   "width": 748,
                   "height": 2100,
-                  "distanceFromFloor": 0,
                   "contents": [{ "type": "StandardDoor", "hingeSide": "right", "swingDirection": "out" }]
                 },
                 {
                   "id": "window5",
                   "distanceAlongWall": 1216,
+                  "distanceFromFloor": 25,
                   "width": 900,
                   "height": 1975,
-                  "distanceFromFloor": 25,
                   "contents": [{ "type": "StandardWindow" }]
                 },
                 {
                   "id": "window6",
                   "distanceAlongWall": 3665,
+                  "distanceFromFloor": 25,
                   "width": 900,
                   "height": 1975,
-                  "distanceFromFloor": 25,
                   "contents": [{ "type": "StandardWindow" }]
                 },
                 {
                   "id": "window7",
                   "distanceAlongWall": 6714,
+                  "distanceFromFloor": 0,
                   "width": 1300,
                   "height": 2000,
-                  "distanceFromFloor": 0,
                   "contents": [{ "type": "StandardWindow" }]
                 }
               ]
@@ -98,25 +97,25 @@
                 {
                   "id": "window8",
                   "distanceAlongWall": 1372,
+                  "distanceFromFloor": 1200,
                   "width": 900,
                   "height": 930,
-                  "distanceFromFloor": 1200,
                   "contents": [{ "type": "StandardWindow" }]
                 },
                 {
                   "id": "window9",
                   "distanceAlongWall": 4621,
+                  "distanceFromFloor": 1200,
                   "width": 900,
                   "height": 930,
-                  "distanceFromFloor": 1200,
                   "contents": [{ "type": "StandardWindow" }]
                 },
                 {
                   "id": "window10",
                   "distanceAlongWall": 8182,
+                  "distanceFromFloor": 800,
                   "width": 1810,
                   "height": 1200,
-                  "distanceFromFloor": 800,
                   "contents": [{ "type": "StandardWindow" }]
                 }
               ]
@@ -130,9 +129,9 @@
                 {
                   "id": "door2",
                   "distanceAlongWall": 614,
+                  "distanceFromFloor": 0,
                   "width": 828,
                   "height": 2100,
-                  "distanceFromFloor": 0,
                   "contents": [{ "type": "StandardDoor", "hingeSide": "left", "swingDirection": "in" }]
                 }
               ]
@@ -147,9 +146,9 @@
                 {
                   "id": "door3",
                   "distanceAlongWall": 590,
+                  "distanceFromFloor": 0,
                   "width": 900,
                   "height": 2100,
-                  "distanceFromFloor": 0,
                   "contents": [{ "type": "StandardDoor", "hingeSide": "left", "swingDirection": "in" }]
                 }
               ]
@@ -162,9 +161,9 @@
                 {
                   "id": "door4",
                   "distanceAlongWall": 1308,
+                  "distanceFromFloor": 0,
                   "width": 800,
                   "height": 2100,
-                  "distanceFromFloor": 0,
                   "contents": [{ "type": "StandardDoor", "hingeSide": "left", "swingDirection": "in" }]
                 }
               ]
@@ -177,17 +176,17 @@
                 {
                   "id": "door5",
                   "distanceAlongWall": 2863,
+                  "distanceFromFloor": 0,
                   "width": 800,
                   "height": 2100,
-                  "distanceFromFloor": 0,
                   "contents": [{ "type": "StandardDoor", "hingeSide": "left", "swingDirection": "in" }]
                 },
                 {
                   "id": "door6",
                   "distanceAlongWall": 3673,
+                  "distanceFromFloor": 0,
                   "width": 800,
                   "height": 2100,
-                  "distanceFromFloor": 0,
                   "contents": [{ "type": "StandardDoor", "hingeSide": "right", "swingDirection": "in" }]
                 }
               ]
@@ -200,9 +199,9 @@
                 {
                   "id": "door7",
                   "distanceAlongWall": 1883,
+                  "distanceFromFloor": 0,
                   "width": 750,
                   "height": 2100,
-                  "distanceFromFloor": 0,
                   "contents": [{ "type": "StandardDoor", "hingeSide": "left", "swingDirection": "in" }]
                 }
               ]
@@ -215,9 +214,9 @@
                 {
                   "id": "door8",
                   "distanceAlongWall": 3496,
+                  "distanceFromFloor": 0,
                   "width": 1065,
                   "height": 2100,
-                  "distanceFromFloor": 0,
                   "contents": [{ "type": "StandardDoor", "hingeSide": "left", "swingDirection": "in" }]
                 }
               ]
@@ -230,9 +229,9 @@
                 {
                   "id": "door9",
                   "distanceAlongWall": 2409,
+                  "distanceFromFloor": 0,
                   "width": 750,
                   "height": 2100,
-                  "distanceFromFloor": 0,
                   "contents": [{ "type": "StandardDoor", "hingeSide": "left", "swingDirection": "in" }]
                 }
               ]
@@ -245,9 +244,9 @@
                 {
                   "id": "door10",
                   "distanceAlongWall": 1502,
+                  "distanceFromFloor": 0,
                   "width": 800,
                   "height": 2100,
-                  "distanceFromFloor": 0,
                   "contents": [{ "type": "StandardDoor", "hingeSide": "right", "swingDirection": "in" }]
                 }
               ]
@@ -260,9 +259,9 @@
                 {
                   "id": "door11",
                   "distanceAlongWall": 444,
+                  "distanceFromFloor": 0,
                   "width": 747,
                   "height": 2100,
-                  "distanceFromFloor": 0,
                   "contents": [{ "type": "StandardDoor", "hingeSide": "left", "swingDirection": "out" }]
                 }
               ]
@@ -276,9 +275,9 @@
                 {
                   "id": "door12",
                   "distanceAlongWall": 2364,
+                  "distanceFromFloor": 0,
                   "width": 800,
                   "height": 2100,
-                  "distanceFromFloor": 0,
                   "contents": [{ "type": "StandardDoor", "hingeSide": "left", "swingDirection": "out" }]
                 }
               ]
@@ -292,9 +291,9 @@
                 {
                   "id": "door13",
                   "distanceAlongWall": 526,
+                  "distanceFromFloor": 0,
                   "width": 772,
                   "height": 2100,
-                  "distanceFromFloor": 0,
                   "contents": [{ "type": "StandardDoor", "hingeSide": "left", "swingDirection": "out" }]
                 }
               ]
@@ -311,9 +310,9 @@
                 {
                   "id": "window12",
                   "distanceAlongWall": 1333,
+                  "distanceFromFloor": 800,
                   "width": 2398,
                   "height": 1200,
-                  "distanceFromFloor": 800,
                   "contents": [{ "type": "StandardWindow" }]
                 }
               ]
@@ -326,17 +325,17 @@
                 {
                   "id": "door14",
                   "distanceAlongWall": 1646,
+                  "distanceFromFloor": 0,
                   "width": 2750,
                   "height": 2100,
-                  "distanceFromFloor": 0,
                   "contents": [{ "type": "StandardDoor", "hingeSide": "left", "swingDirection": "in" }]
                 },
                 {
                   "id": "door15",
                   "distanceAlongWall": 4580,
+                  "distanceFromFloor": 0,
                   "width": 2750,
                   "height": 2100,
-                  "distanceFromFloor": 0,
                   "contents": [{ "type": "StandardDoor", "hingeSide": "left", "swingDirection": "in" }]
                 }
               ]
@@ -349,9 +348,9 @@
                 {
                   "id": "window15",
                   "distanceAlongWall": 1702,
+                  "distanceFromFloor": 800,
                   "width": 3202,
                   "height": 1200,
-                  "distanceFromFloor": 800,
                   "contents": [{ "type": "StandardWindow" }]
                 }
               ]
@@ -364,9 +363,9 @@
                 {
                   "id": "window18",
                   "distanceAlongWall": 1300,
+                  "distanceFromFloor": 800,
                   "width": 2398,
                   "height": 1200,
-                  "distanceFromFloor": 800,
                   "contents": [{ "type": "StandardWindow" }]
                 }
               ]
@@ -379,17 +378,17 @@
                 {
                   "id": "door16",
                   "distanceAlongWall": 5284,
+                  "distanceFromFloor": 0,
                   "width": 1570,
                   "height": 2100,
-                  "distanceFromFloor": 0,
                   "contents": [{ "type": "StandardDoor", "hingeSide": "right", "swingDirection": "in" }]
                 },
                 {
                   "id": "window21",
                   "distanceAlongWall": 1852,
+                  "distanceFromFloor": 988,
                   "width": 2387,
                   "height": 1012,
-                  "distanceFromFloor": 988,
                   "contents": [{ "type": "StandardWindow" }]
                 }
               ]
@@ -402,49 +401,49 @@
                 {
                   "id": "door17",
                   "distanceAlongWall": 1795,
+                  "distanceFromFloor": 0,
                   "width": 900,
                   "height": 2100,
-                  "distanceFromFloor": 0,
                   "contents": [{ "type": "StandardDoor", "hingeSide": "left", "swingDirection": "out" }]
                 },
                 {
                   "id": "door18",
                   "distanceAlongWall": 2676,
+                  "distanceFromFloor": 0,
                   "width": 842,
                   "height": 2100,
-                  "distanceFromFloor": 0,
                   "contents": [{ "type": "StandardDoor", "hingeSide": "right", "swingDirection": "out" }]
                 },
                 {
                   "id": "window23",
                   "distanceAlongWall": 1110,
+                  "distanceFromFloor": 0,
                   "width": 450,
                   "height": 2000,
-                  "distanceFromFloor": 0,
                   "contents": [{ "type": "StandardWindow" }]
                 },
                 {
                   "id": "window24",
                   "distanceAlongWall": 3332,
+                  "distanceFromFloor": 0,
                   "width": 450,
                   "height": 2000,
-                  "distanceFromFloor": 0,
                   "contents": [{ "type": "StandardWindow" }]
                 },
                 {
                   "id": "window25",
                   "distanceAlongWall": 4958,
+                  "distanceFromFloor": 800,
                   "width": 900,
                   "height": 1200,
-                  "distanceFromFloor": 800,
                   "contents": [{ "type": "StandardWindow" }]
                 },
                 {
                   "id": "window26",
                   "distanceAlongWall": 6454,
+                  "distanceFromFloor": 800,
                   "width": 900,
                   "height": 1200,
-                  "distanceFromFloor": 800,
                   "contents": [{ "type": "StandardWindow" }]
                 }
               ]
@@ -458,9 +457,9 @@
                 {
                   "id": "door19",
                   "distanceAlongWall": 601,
+                  "distanceFromFloor": 0,
                   "width": 755,
                   "height": 1050,
-                  "distanceFromFloor": 0,
                   "contents": [{ "type": "StandardDoor", "hingeSide": "left", "swingDirection": "in" }]
                 }
               ]
@@ -471,6 +470,129 @@
             { "id": "wall49", "start": [25144, 9162], "end": [29232, 9162] },
             { "id": "wall50", "start": [32632, 0], "end": [24344, 22331] },
             { "id": "wall51", "start": [10104, 22670], "end": [9644, 0] }
+          ],
+          "rooms": [
+            {
+              "name": "Lounge",
+              "walls": [{ "ref": "wall14" }, { "ref": "wall23" }, { "ref": "wall24" }, { "ref": "wall13" }]
+            },
+            {
+              "name": "",
+              "walls": [
+                { "ref": "wall42" },
+                { "ref": "wall41" },
+                { "ref": "wall40" },
+                { "ref": "wall38" },
+                { "ref": "wall18" },
+                { "ref": "wall43" },
+                { "ref": "wall17" },
+                { "ref": "wall39" },
+                { "ref": "wall37" },
+                { "ref": "wall16" },
+                { "ref": "wall14" },
+                { "ref": "wall13" }
+              ]
+            },
+            {
+              "name": "Garage",
+              "walls": [
+                { "ref": "wall17" },
+                { "ref": "wall21" },
+                { "ref": "wall34" },
+                { "ref": "wall35" },
+                { "ref": "wall36" },
+                { "ref": "wall21" },
+                { "ref": "wall22" },
+                { "ref": "wall15" },
+                { "ref": "wall39" }
+              ]
+            },
+            {
+              "name": "Family Room",
+              "walls": [{ "ref": "wall26" }, { "ref": "wall21" }, { "ref": "wall17" }, { "ref": "wall43" }]
+            },
+            {
+              "name": "Dining Room",
+              "walls": [{ "ref": "wall13" }, { "ref": "wall24" }, { "ref": "wall25" }, { "ref": "wall42" }]
+            },
+            {
+              "name": "Conservatory",
+              "walls": [{ "ref": "wall41" }, { "ref": "wall42" }, { "ref": "wall38" }, { "ref": "wall44" }]
+            },
+            {
+              "name": "",
+              "walls": [
+                { "ref": "wall25" },
+                { "ref": "wall24" },
+                { "ref": "wall23" },
+                { "ref": "wall29" },
+                { "ref": "wall27" },
+                { "ref": "wall42" }
+              ]
+            },
+            {
+              "name": "Hallway",
+              "walls": [
+                { "ref": "wall26" },
+                { "ref": "wall31" },
+                { "ref": "wall27" },
+                { "ref": "wall28" },
+                { "ref": "wall23" },
+                { "ref": "wall14" },
+                { "ref": "wall22" },
+                { "ref": "wall48" },
+                { "ref": "wall20" },
+                { "ref": "wall20" },
+                { "ref": "wall48" },
+                { "ref": "wall22" },
+                { "ref": "wall45" },
+                { "ref": "wall47" },
+                { "ref": "wall47" },
+                { "ref": "wall45" },
+                { "ref": "wall22" },
+                { "ref": "wall21" }
+              ]
+            },
+            {
+              "name": "",
+              "walls": [{ "ref": "wall23" }, { "ref": "wall28" }, { "ref": "wall30" }, { "ref": "wall29" }]
+            },
+            {
+              "name": "",
+              "walls": [{ "ref": "wall30" }, { "ref": "wall28" }, { "ref": "wall27" }, { "ref": "wall29" }]
+            },
+            {
+              "name": "",
+              "walls": [
+                { "ref": "wall43" },
+                { "ref": "wall19" },
+                { "ref": "wall27" },
+                { "ref": "wall31" },
+                { "ref": "wall26" },
+                { "ref": "wall33" },
+                { "ref": "wall32" }
+              ]
+            },
+            {
+              "name": "Toilet",
+              "walls": [{ "ref": "wall43" }, { "ref": "wall32" }, { "ref": "wall33" }, { "ref": "wall26" }]
+            },
+            {
+              "name": "",
+              "walls": [{ "ref": "wall36" }, { "ref": "wall35" }, { "ref": "wall34" }, { "ref": "wall21" }]
+            },
+            {
+              "name": "Verandah",
+              "walls": [{ "ref": "wall15" }, { "ref": "wall14" }, { "ref": "wall16" }, { "ref": "wall37" }]
+            },
+            {
+              "name": "Conservatory",
+              "walls": [{ "ref": "wall38" }, { "ref": "wall40" }, { "ref": "wall41" }, { "ref": "wall44" }]
+            },
+            {
+              "name": "Mini-verandah",
+              "walls": [{ "ref": "wall38" }, { "ref": "wall42" }, { "ref": "wall19" }, { "ref": "wall18" }]
+            }
           ]
         },
         {
@@ -486,25 +608,25 @@
                 {
                   "id": "window27",
                   "distanceAlongWall": 1726,
+                  "distanceFromFloor": 800,
                   "width": 1810,
                   "height": 1200,
-                  "distanceFromFloor": 800,
                   "contents": [{ "type": "StandardWindow" }]
                 },
                 {
                   "id": "window29",
                   "distanceAlongWall": 4888,
+                  "distanceFromFloor": 800,
                   "width": 1515,
                   "height": 1200,
-                  "distanceFromFloor": 800,
                   "contents": [{ "type": "StandardWindow" }]
                 },
                 {
                   "id": "window31",
                   "distanceAlongWall": 10147,
+                  "distanceFromFloor": 800,
                   "width": 2720,
                   "height": 1200,
-                  "distanceFromFloor": 800,
                   "contents": [{ "type": "StandardWindow" }]
                 }
               ]
@@ -517,25 +639,25 @@
                 {
                   "id": "door20",
                   "distanceAlongWall": 5140,
+                  "distanceFromFloor": 250,
                   "width": 600,
                   "height": 860,
-                  "distanceFromFloor": 250,
                   "contents": [{ "type": "StandardDoor", "hingeSide": "left", "swingDirection": "in" }]
                 },
                 {
                   "id": "window34",
                   "distanceAlongWall": 1346,
+                  "distanceFromFloor": 1500,
                   "width": 1180,
                   "height": 570,
-                  "distanceFromFloor": 1500,
                   "contents": [{ "type": "StandardWindow" }]
                 },
                 {
                   "id": "window35",
                   "distanceAlongWall": 6260,
+                  "distanceFromFloor": 1500,
                   "width": 540,
                   "height": 540,
-                  "distanceFromFloor": 1500,
                   "contents": [{ "type": "StandardWindow" }]
                 }
               ]
@@ -548,33 +670,33 @@
                 {
                   "id": "window36",
                   "distanceAlongWall": 1601,
+                  "distanceFromFloor": 800,
                   "width": 1947,
                   "height": 1200,
-                  "distanceFromFloor": 800,
                   "contents": [{ "type": "StandardWindow" }]
                 },
                 {
                   "id": "window38",
                   "distanceAlongWall": 4435,
+                  "distanceFromFloor": 800,
                   "width": 1332,
                   "height": 1200,
-                  "distanceFromFloor": 800,
                   "contents": [{ "type": "StandardWindow" }]
                 },
                 {
                   "id": "window39",
                   "distanceAlongWall": 7260,
+                  "distanceFromFloor": 800,
                   "width": 1782,
                   "height": 1200,
-                  "distanceFromFloor": 800,
                   "contents": [{ "type": "StandardWindow" }]
                 },
                 {
                   "id": "window41",
                   "distanceAlongWall": 10420,
+                  "distanceFromFloor": 800,
                   "width": 1951,
                   "height": 1200,
-                  "distanceFromFloor": 800,
                   "contents": [{ "type": "StandardWindow" }]
                 }
               ]
@@ -587,17 +709,17 @@
                 {
                   "id": "window43",
                   "distanceAlongWall": 1579,
+                  "distanceFromFloor": 1505,
                   "width": 1790,
                   "height": 565,
-                  "distanceFromFloor": 1505,
                   "contents": [{ "type": "StandardWindow" }]
                 },
                 {
                   "id": "window44",
                   "distanceAlongWall": 6004,
+                  "distanceFromFloor": 1505,
                   "width": 1790,
                   "height": 565,
-                  "distanceFromFloor": 1505,
                   "contents": [{ "type": "StandardWindow" }]
                 }
               ]
@@ -611,41 +733,41 @@
                 {
                   "id": "door21",
                   "distanceAlongWall": 997,
+                  "distanceFromFloor": 0,
                   "width": 1500,
                   "height": 2100,
-                  "distanceFromFloor": 0,
                   "contents": [{ "type": "StandardDoor", "hingeSide": "left", "swingDirection": "out" }]
                 },
                 {
                   "id": "door22",
                   "distanceAlongWall": 2812,
+                  "distanceFromFloor": 0,
                   "width": 800,
                   "height": 2100,
-                  "distanceFromFloor": 0,
                   "contents": [{ "type": "StandardDoor", "hingeSide": "right", "swingDirection": "out" }]
                 },
                 {
                   "id": "door23",
                   "distanceAlongWall": 4708,
+                  "distanceFromFloor": 0,
                   "width": 800,
                   "height": 2100,
-                  "distanceFromFloor": 0,
                   "contents": [{ "type": "StandardDoor", "hingeSide": "right", "swingDirection": "out" }]
                 },
                 {
                   "id": "door24",
                   "distanceAlongWall": 5781,
+                  "distanceFromFloor": 0,
                   "width": 785,
                   "height": 2100,
-                  "distanceFromFloor": 0,
                   "contents": [{ "type": "StandardDoor", "hingeSide": "right", "swingDirection": "out" }]
                 },
                 {
                   "id": "door25",
                   "distanceAlongWall": 6846,
+                  "distanceFromFloor": 0,
                   "width": 394,
                   "height": 2100,
-                  "distanceFromFloor": 0,
                   "contents": [{ "type": "StandardDoor", "hingeSide": "right", "swingDirection": "in" }]
                 }
               ]
@@ -659,9 +781,9 @@
                 {
                   "id": "door26",
                   "distanceAlongWall": 603,
+                  "distanceFromFloor": 0,
                   "width": 800,
                   "height": 2100,
-                  "distanceFromFloor": 0,
                   "contents": [{ "type": "StandardDoor", "hingeSide": "right", "swingDirection": "out" }]
                 }
               ]
@@ -675,9 +797,9 @@
                 {
                   "id": "door27",
                   "distanceAlongWall": 1540,
+                  "distanceFromFloor": 0,
                   "width": 800,
                   "height": 2100,
-                  "distanceFromFloor": 0,
                   "contents": [{ "type": "StandardDoor", "hingeSide": "right", "swingDirection": "out" }]
                 }
               ]
@@ -691,9 +813,9 @@
                 {
                   "id": "window45",
                   "distanceAlongWall": 859,
+                  "distanceFromFloor": 1689,
                   "width": 900,
                   "height": 490,
-                  "distanceFromFloor": 1689,
                   "contents": [{ "type": "StandardWindow" }]
                 }
               ]
@@ -707,9 +829,9 @@
                 {
                   "id": "door28",
                   "distanceAlongWall": 632,
+                  "distanceFromFloor": 0,
                   "width": 800,
                   "height": 2100,
-                  "distanceFromFloor": 0,
                   "contents": [{ "type": "StandardDoor", "hingeSide": "left", "swingDirection": "out" }]
                 }
               ]
@@ -727,9 +849,9 @@
                 {
                   "id": "door29",
                   "distanceAlongWall": 949,
+                  "distanceFromFloor": 0,
                   "width": 1500,
                   "height": 2100,
-                  "distanceFromFloor": 0,
                   "contents": [{ "type": "StandardDoor", "hingeSide": "left", "swingDirection": "out" }]
                 }
               ]
@@ -746,17 +868,17 @@
                 {
                   "id": "door30",
                   "distanceAlongWall": 890,
+                  "distanceFromFloor": 0,
                   "width": 1500,
                   "height": 2100,
-                  "distanceFromFloor": 0,
                   "contents": [{ "type": "StandardDoor", "hingeSide": "left", "swingDirection": "out" }]
                 },
                 {
                   "id": "door31",
                   "distanceAlongWall": 2220,
+                  "distanceFromFloor": 0,
                   "width": 1140,
                   "height": 2100,
-                  "distanceFromFloor": 0,
                   "contents": [{ "type": "StandardDoor", "hingeSide": "left", "swingDirection": "out" }]
                 }
               ]
@@ -769,17 +891,17 @@
                 {
                   "id": "door32",
                   "distanceAlongWall": 680,
+                  "distanceFromFloor": 0,
                   "width": 800,
                   "height": 2100,
-                  "distanceFromFloor": 0,
                   "contents": [{ "type": "StandardDoor", "hingeSide": "right", "swingDirection": "in" }]
                 },
                 {
                   "id": "door33",
                   "distanceAlongWall": 3766,
+                  "distanceFromFloor": 0,
                   "width": 800,
                   "height": 2100,
-                  "distanceFromFloor": 0,
                   "contents": [{ "type": "StandardDoor", "hingeSide": "right", "swingDirection": "in" }]
                 }
               ]
@@ -797,8 +919,111 @@
           ],
           "rooms": [
             {
+              "name": "Spare Bedroom",
+              "walls": [
+                { "ref": "wall69" },
+                { "ref": "wall74" },
+                { "ref": "wall75" },
+                { "ref": "wall77" },
+                { "ref": "wall66" },
+                { "ref": "wall54" }
+              ]
+            },
+            {
+              "name": "",
+              "walls": [{ "ref": "wall55" }, { "ref": "wall54" }, { "ref": "wall53" }, { "ref": "wall52" }]
+            },
+            {
               "name": "Sophie's Room",
-              "walls": [{ "ref": "eastWall" }, { "ref": "eastHallwayWall" }, { "ref": "southWall" }]
+              "walls": [{ "ref": "wall56" }, { "ref": "wall57" }, { "ref": "wall55" }, { "ref": "wall52" }]
+            },
+            {
+              "name": "Master Bedroom",
+              "walls": [
+                { "ref": "wall58" },
+                { "ref": "wall59" },
+                { "ref": "wall76" },
+                { "ref": "wall52" },
+                { "ref": "wall53" }
+              ]
+            },
+            {
+              "name": "Bathroom",
+              "walls": [
+                { "ref": "wall61" },
+                { "ref": "wall57" },
+                { "ref": "wall64" },
+                { "ref": "wall63" },
+                { "ref": "wall56" },
+                { "ref": "wall52" }
+              ]
+            },
+            {
+              "name": "Shower",
+              "walls": [{ "ref": "wall62" }, { "ref": "wall61" }, { "ref": "wall52" }, { "ref": "wall60" }]
+            },
+            {
+              "name": "HWC",
+              "walls": [{ "ref": "wall60" }, { "ref": "wall57" }, { "ref": "wall61" }, { "ref": "wall62" }]
+            },
+            {
+              "name": "Toilet",
+              "walls": [{ "ref": "wall56" }, { "ref": "wall63" }, { "ref": "wall64" }, { "ref": "wall57" }]
+            },
+            {
+              "name": "Ciaran's Room",
+              "walls": [
+                { "ref": "wall55" },
+                { "ref": "wall71" },
+                { "ref": "wall72" },
+                { "ref": "wall77" },
+                { "ref": "wall69" },
+                { "ref": "wall54" }
+              ]
+            },
+            {
+              "name": "",
+              "walls": [{ "ref": "wall54" }, { "ref": "wall65" }, { "ref": "wall58" }, { "ref": "wall53" }]
+            },
+            {
+              "name": "Stairwell",
+              "walls": [
+                { "ref": "wall66" },
+                { "ref": "wall70" },
+                { "ref": "wall78" },
+                { "ref": "wall68" },
+                { "ref": "wall65" },
+                { "ref": "wall54" }
+              ]
+            },
+            {
+              "name": "",
+              "walls": [{ "ref": "wall72" }, { "ref": "wall73" }, { "ref": "wall55" }, { "ref": "wall57" }]
+            },
+            {
+              "name": "",
+              "walls": [{ "ref": "wall55" }, { "ref": "wall73" }, { "ref": "wall72" }, { "ref": "wall71" }]
+            },
+            {
+              "name": "",
+              "walls": [{ "ref": "wall69" }, { "ref": "wall77" }, { "ref": "wall75" }, { "ref": "wall74" }]
+            },
+            {
+              "name": "",
+              "walls": [{ "ref": "wall52" }, { "ref": "wall76" }, { "ref": "wall57" }, { "ref": "wall60" }]
+            },
+            {
+              "name": "Hallway",
+              "walls": [
+                { "ref": "wall70" },
+                { "ref": "wall77" },
+                { "ref": "wall72" },
+                { "ref": "wall57" },
+                { "ref": "wall59" },
+                { "ref": "wall65" },
+                { "ref": "wall68" },
+                { "ref": "wall78" }
+              ]
             }
           ]
         },
