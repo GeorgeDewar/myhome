@@ -522,7 +522,7 @@
               "walls": [{ "ref": "wall41" }, { "ref": "wall42" }, { "ref": "wall38" }, { "ref": "wall44" }]
             },
             {
-              "name": "",
+              "name": "Kitchen",
               "walls": [
                 { "ref": "wall25" },
                 { "ref": "wall24" },
@@ -552,15 +552,15 @@
               ]
             },
             {
-              "name": "",
+              "name": "Coat Cupboard",
               "walls": [{ "ref": "wall23" }, { "ref": "wall28" }, { "ref": "wall30" }, { "ref": "wall29" }]
             },
             {
-              "name": "",
+              "name": "Kitchen Cupboard",
               "walls": [{ "ref": "wall30" }, { "ref": "wall28" }, { "ref": "wall27" }, { "ref": "wall29" }]
             },
             {
-              "name": "",
+              "name": "Laundry",
               "walls": [
                 { "ref": "wall43" },
                 { "ref": "wall19" },
@@ -576,7 +576,7 @@
               "walls": [{ "ref": "wall43" }, { "ref": "wall32" }, { "ref": "wall33" }, { "ref": "wall26" }]
             },
             {
-              "name": "",
+              "name": "Hallway Cupboard",
               "walls": [{ "ref": "wall36" }, { "ref": "wall35" }, { "ref": "wall34" }, { "ref": "wall21" }]
             },
             {
@@ -588,7 +588,7 @@
               "walls": [{ "ref": "wall38" }, { "ref": "wall40" }, { "ref": "wall41" }, { "ref": "wall44" }]
             },
             {
-              "name": "Mini-verandah",
+              "name": "BBQ verandah",
               "walls": [{ "ref": "wall38" }, { "ref": "wall42" }, { "ref": "wall19" }, { "ref": "wall18" }]
             }
           ]
@@ -905,15 +905,10 @@
               ]
             },
             { "id": "wall78", "start": [18115, 13418], "end": [18115, 12247] },
-            { "id": "wall79", "start": [21783, 7587], "end": [25187, 7587] },
-            { "id": "wall80", "start": [21783, 5568], "end": [21783, 4953] },
-            { "id": "wall81", "start": [21783, 7587], "end": [21783, 6525] },
             { "id": "wall82", "start": [7, 19535], "end": [6, 19536] },
             { "id": "wall83", "start": [25139, 16143], "end": [25139, 16785] },
             { "id": "wall84", "start": [10796, 8257], "end": [10796, 6525] },
-            { "id": "wall85", "start": [10796, 16785], "end": [10796, 15646] },
-            { "id": "wall86", "start": [25187, 6525], "end": [25187, 7587] },
-            { "id": "wall87", "start": [25187, 4953], "end": [25187, 6435] }
+            { "id": "wall85", "start": [10796, 16785], "end": [10796, 15646] }
           ],
           "rooms": [
             {
@@ -980,7 +975,7 @@
               ]
             },
             {
-              "name": "",
+              "name": "Office",
               "walls": [{ "ref": "wall54" }, { "ref": "wall65" }, { "ref": "wall58" }, { "ref": "wall53" }]
             },
             {
@@ -995,19 +990,19 @@
               ]
             },
             {
-              "name": "",
+              "name": "Closet",
               "walls": [{ "ref": "wall72" }, { "ref": "wall73" }, { "ref": "wall55" }, { "ref": "wall57" }]
             },
             {
-              "name": "",
+              "name": "Closet",
               "walls": [{ "ref": "wall55" }, { "ref": "wall73" }, { "ref": "wall72" }, { "ref": "wall71" }]
             },
             {
-              "name": "",
+              "name": "Closet",
               "walls": [{ "ref": "wall69" }, { "ref": "wall77" }, { "ref": "wall75" }, { "ref": "wall74" }]
             },
             {
-              "name": "",
+              "name": "Closet",
               "walls": [{ "ref": "wall52" }, { "ref": "wall76" }, { "ref": "wall57" }, { "ref": "wall60" }]
             },
             {
