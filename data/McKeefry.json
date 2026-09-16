@@ -1,4 +1,5 @@
 {
+  "$schema": "./schema.json",
   "buildings": [
     {
       "name": "Home",
@@ -469,7 +470,8 @@
             { "id": "wall48", "start": [18971, 15073], "end": [17005, 15073] },
             { "id": "wall49", "start": [25144, 9162], "end": [29232, 9162] },
             { "id": "wall50", "start": [32632, 0], "end": [24344, 22331] },
-            { "id": "wall51", "start": [10104, 22670], "end": [9644, 0] }
+            { "id": "wall51", "start": [10104, 22670], "end": [9644, 0] },
+            { "id": "wall52", "start": [18123, 12941], "end": [18971, 12941] }
           ],
           "rooms": [
             {
@@ -542,11 +544,7 @@
                 { "ref": "wall22" },
                 { "ref": "wall48" },
                 { "ref": "wall20" },
-                { "ref": "wall20" },
-                { "ref": "wall48" },
-                { "ref": "wall22" },
-                { "ref": "wall45" },
-                { "ref": "wall47" },
+                { "ref": "wall52" },
                 { "ref": "wall47" },
                 { "ref": "wall45" },
                 { "ref": "wall22" },
