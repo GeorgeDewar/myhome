@@ -133,6 +133,10 @@
                             }
                           }
                         }
+                      },
+                      "virtual": {
+                        "type": "boolean",
+                        "description": "If true, it's not really a wall at all but is only used to define an area"
                       }
                     }
                   }
