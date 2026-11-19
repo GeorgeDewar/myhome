@@ -126,6 +126,12 @@
                                     "type": "object",
                                     "required": ["type"],
                                     "unevaluatedProperties": false,
+                                    "properties": { "type": { "const": "SlidingDoor" } }
+                                  },
+                                  {
+                                    "type": "object",
+                                    "required": ["type"],
+                                    "unevaluatedProperties": false,
                                     "properties": { "type": { "const": "StandardWindow" } }
                                   }
                                 ]
